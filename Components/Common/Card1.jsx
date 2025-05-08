@@ -6,7 +6,7 @@ import * as motion from "motion/react-client";
 export default function Card1({ title, description, imageUrl }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 0,x:-100 }}
+      initial={{ opacity: 0, y: 100,x:0 }}
       // animate={{ opacity: 1, y: 0,x:0 }}
       viewport={{ once: false, amount: 0.2 }}
       whileInView={{ opacity: 1, y: 0,x:0, transition: { duration: 1 } }}

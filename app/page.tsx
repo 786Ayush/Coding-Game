@@ -3,6 +3,7 @@ import Image from "next/image";
 import * as motion from "motion/react-client";
 import { useEffect, useState } from "react";
 import { Working } from "@/Components/Landing/Working";
+import Footer from "@/Components/Common/Footer";
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -19,8 +20,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen relative overflow-hidden px-10">
-      <div className="w-full  mx-auto flex flex-col md:flex-row justify-between items-center min-h-screen px-6 py-6 gap-12 relative bg-gradient-to-r from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f]">
+    <div className="w-full min-h-screen relative overflow-hidden ">
+      <div className="w-full px-10 mx-auto flex flex-col md:flex-row justify-between items-center min-h-screen px-6 py-6 gap-12 relative bg-gradient-to-r from-[#0f0f0f] via-[#1a1a1a] to-[#0f0f0f]">
         {/* Left Text Block */}
         <motion.div
           className=" text-center md:text-left"
@@ -73,6 +74,7 @@ export default function Home() {
       <div className=" flex flex-col items-center">
         <Working />
       </div>
+      <Footer/>
     </div>
   );
 }
