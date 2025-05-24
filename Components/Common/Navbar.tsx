@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Navbar = () => {
     return (
         <nav className="bg-gray-800 p-4">
@@ -5,13 +7,13 @@ export const Navbar = () => {
                 <div className="text-white text-lg font-bold">MyApp</div>
                 <ul className="flex space-x-4">
                     <li>
-                        <a href="/" className="text-gray-300 hover:text-white">Home</a>
+                        <Link href="/" className="text-gray-300 hover:text-white">Home</Link>
                     </li>
                     <li>
-                        <a href="/about" className="text-gray-300 hover:text-white">About</a>
+                        <Link href="/about" className="text-gray-300 hover:text-white">About</Link>
                     </li>
                     <li>
-                        <a href="/contact" className="text-gray-300 hover:text-white">Contact</a>
+                        <Link href="/contact" className="text-gray-300 hover:text-white">Contact</Link>
                     </li>
                 </ul>
             </div>

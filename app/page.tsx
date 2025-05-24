@@ -1,11 +1,11 @@
 "use client";
-import Image from "next/image";
+
 import * as motion from "motion/react-client";
 import { useEffect, useState } from "react";
 import { Working } from "@/Components/Landing/Working";
 import Footer from "@/Components/Common/Footer";
 import { useRouter } from "next/navigation";
-// import { useRouter } from "next/router";
+
 export default function Home() {
   const router = useRouter();
   const [text, setText] = useState("");

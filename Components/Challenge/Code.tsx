@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Editor } from "@monaco-editor/react";
 import { language } from "../Common/Variables";
 import { CompileCode } from "@/app/lib/api";
@@ -29,8 +29,7 @@ export default function Code() {
   const [output, setOutput] = useState<CompileResponse | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [selectedLanguage, setSelectedLanguage] =
-    useState<LanguageOption | null>(null);
+  const [selectedLanguage, setSelectedLanguage] =useState<LanguageOption | null>(null);
 
   const handleCompileCode = async () => {
     setIsLoading(true);
@@ -49,6 +48,7 @@ export default function Code() {
     const selectedLang = language.find(
       (lang: LanguageOption) => lang.id === languageId
     );
+    setSelectedLanguage(selectedLang || null);
   }, [languageId]);
 
   return (
