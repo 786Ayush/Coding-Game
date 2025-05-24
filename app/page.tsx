@@ -4,8 +4,10 @@ import * as motion from "motion/react-client";
 import { useEffect, useState } from "react";
 import { Working } from "@/Components/Landing/Working";
 import Footer from "@/Components/Common/Footer";
-
+import { useRouter } from "next/navigation";
+// import { useRouter } from "next/router";
 export default function Home() {
+  const router = useRouter();
   const [text, setText] = useState("");
   const phrase = "Race to Code. Win the Dev Battle!";
 
@@ -40,6 +42,7 @@ export default function Home() {
             className="mt-8 px-6 py-3 bg-blue-600 text-white font-medium rounded-xl shadow-md hover:bg-blue-700 transition duration-300"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => router.push("/challenge/sd")}
           >
             Get Started
           </motion.button>
