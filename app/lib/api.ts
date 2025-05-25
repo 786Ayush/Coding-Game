@@ -1,10 +1,10 @@
-export const CompileCode = async (code: string, language_id: number) => {
+export const CompileCode = async (code: string, language_id: number, input: any) => {
     const response = await fetch("/api/CompileCode", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ code, language_id }),
+        body: JSON.stringify({ code, language_id,input }),
     });
 
     if (!response.ok) {

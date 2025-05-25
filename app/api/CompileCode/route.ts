@@ -9,7 +9,7 @@ function decodeBase64(str?: string | null) {
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const { code, language_id } = body;
+  const { code, language_id, input } = body; // <-- include input
 
   console.log("Received code:", code);
 
@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
   }
 
   const encodedCode = Buffer.from(code).toString("base64");
+  const encodedInput = input ? Buffer.from(input).toString("base64") : undefined;
 
   try {
     const response = await axios.post(
@@ -28,6 +29,7 @@ export async function POST(req: NextRequest) {
       {
         source_code: encodedCode,
         language_id: language_id,
+        stdin: encodedInput, // <-- pass input here
       },
       {
         headers: {
@@ -44,7 +46,7 @@ export async function POST(req: NextRequest) {
       stdout: decodeBase64(data.stdout),
       stderr: decodeBase64(data.stderr),
       compile_output: decodeBase64(data.compile_output),
-      status: data.status, // fixed typo: was `data.stat`
+      status: data.status,
     });
   } catch (err) {
     const error = err as AxiosError;

@@ -30,11 +30,14 @@ export default function Code() {
   const [status, setStatus] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedLanguage, setSelectedLanguage] =useState<LanguageOption | null>(null);
+  const [input, setInput] = useState<any>(null); // For stdin input
+
+
   console.log("Selected Language:", selectedLanguage,selectedLanguage?.name.toLowerCase().split(" ")[0]);
   const handleCompileCode = async () => {
     setIsLoading(true);
     try {
-      const response: CompileResponse = await CompileCode(code, languageId);
+      const response: CompileResponse = await CompileCode(code, languageId,input);
       setOutput(response);
       setStatus(response?.status?.description || null);
       console.log("Compilation Result:", response);
