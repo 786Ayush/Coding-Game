@@ -1,4 +1,4 @@
-export const CompileCode = async (code: string, language_id: number, input: any) => {
+export const CompileCode = async (code: string, language_id: number, input: string) => {
     const response = await fetch("/api/CompileCode", {
         method: "POST",
         headers: {

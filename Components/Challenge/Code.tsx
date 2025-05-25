@@ -30,7 +30,7 @@ export default function Code() {
   const [status, setStatus] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedLanguage, setSelectedLanguage] =useState<LanguageOption | null>(null);
-  const [input, setInput] = useState<any>(null); // For stdin input
+  const [input, setInput] = useState<string>(""); // For stdin input
 
 
   console.log("Selected Language:", selectedLanguage,selectedLanguage?.name.toLowerCase().split(" ")[0]);
@@ -52,6 +52,7 @@ export default function Code() {
       (lang: LanguageOption) => lang.id === languageId
     );
     setSelectedLanguage(selectedLang || null);
+    setInput(""); // Reset input when language changes
   }, [languageId]);
 
   return (
