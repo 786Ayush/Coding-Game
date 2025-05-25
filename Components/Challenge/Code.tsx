@@ -94,7 +94,7 @@ export default function Code() {
       <div className="w-full border border-gray-700 rounded-md overflow-hidden shadow">
         <Editor
           height="400px"
-          defaultLanguage={selectedLanguage?.name || "C++"}
+          defaultLanguage={selectedLanguage?.name || "javascript"}
           value={code}
           theme="vs-dark"
           onChange={(value) => setCode(value || "")}
