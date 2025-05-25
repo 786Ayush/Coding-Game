@@ -52,9 +52,10 @@ export default function Code() {
   }, [languageId]);
 
   return (
-    <div className="p-4 space-y-4 bg-gray-900  text-white">
+    <div className="p-4 space-y-4 bg-zinc-900  text-white overflow-y-scroll border rounded-lg border-gray-700 m-3 m-collapse">
       {/* Controls */}
       <div className="flex items-center justify-between">
+        {/* <div className="h-48 overflow-y-scroll w-full max-w-xs"> */}
         <select
           className="bg-white text-black px-4 py-2 rounded-md shadow min-w-40"
           value={languageId}
@@ -66,6 +67,7 @@ export default function Code() {
               setLanguageId(selected.id);
             }
           }}
+          
         >
           {language.map((lang: LanguageOption) => (
             <option key={lang.id} value={lang.id}>
@@ -73,6 +75,7 @@ export default function Code() {
             </option>
           ))}
         </select>
+        {/* </div> */}
         <div className="space-x-2">
           <button
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition disabled:opacity-50"
