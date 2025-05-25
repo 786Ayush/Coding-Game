@@ -17,7 +17,7 @@ interface DSAQuestion {
 }
 
 export default function Problem() {
-  const question: DSAQuestion | undefined = Question[0];
+  const question: DSAQuestion | undefined = Question[1];
 
   if (!question) return <div>No question found.</div>;
 

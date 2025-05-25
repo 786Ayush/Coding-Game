@@ -30,7 +30,7 @@ export default function Code() {
   const [status, setStatus] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [selectedLanguage, setSelectedLanguage] =useState<LanguageOption | null>(null);
-
+  console.log("Selected Language:", selectedLanguage,selectedLanguage?.name.toLowerCase().split(" ")[0]);
   const handleCompileCode = async () => {
     setIsLoading(true);
     try {
@@ -94,7 +94,10 @@ export default function Code() {
       <div className="w-full border border-gray-700 rounded-md overflow-hidden shadow">
         <Editor
           height="400px"
-          defaultLanguage={selectedLanguage?.name || "javascript"}
+          language={selectedLanguage?.editorLang || "javascript"}
+          // language={selectedLanguage?.name.split(" ")[0] || "javascript"}
+          // language="cpp"
+          // defaultLanguage="C++"
           value={code}
           theme="vs-dark"
           onChange={(value) => setCode(value || "")}
